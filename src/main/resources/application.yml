@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    include: secret
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: '${custom.db.url}'
+    username: '${custom.db.username}'
+    password: '${custom.db.password}'
+
+  redis:
+    host: localhost
+    password: '${custom.redis.password}'
+    port: 6379
