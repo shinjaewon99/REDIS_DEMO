@@ -15,12 +15,12 @@ services:
       - mysql_data:/var/lib/mysql
 
   redis:
-    image: redis:7.0
+    build:
+      context: .
     container_name: redis_container
     restart: always
     ports:
       - "6379:6379"
-    command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis_data:/data
 
