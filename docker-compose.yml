@@ -15,14 +15,14 @@ services:
       - mysql_data:/var/lib/mysql
 
   redis:
-    build:
-      context: .
+    image: redis:latest
     container_name: redis_container
     restart: always
     ports:
       - "6379:6379"
     volumes:
-      - redis_data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 
 volumes:
   mysql_data:
